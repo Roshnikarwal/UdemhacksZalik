@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HealT</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <style>
         body {
@@ -19,6 +20,7 @@
             font-size: 1.2em;
             color: #555;
         }
+
     </style>
 </head>
 
@@ -30,18 +32,30 @@
 <div><h1>HealT</h1></div>
 <div>
     <form>
+        <div class="container">
+
+            <div class="mb-3">
         <label for="patient">Patient</label>
         <input type="radio" id="patient" name="role" value="patient">
         <label for="doctor">Doctor</label>
         <input type="radio" id="doctor" name="role" value="doctor">
-        <br>
+            </div>
 
-        <label for="Email">Email</label>
-        <input type="email" name="Email" id="Email"><br>
-        <label for="password">Password</label>
+            <div class="mb-3">
+        <label for="Email">Email :</label>
+        <input type="email" name="Email" id="Email">
+            </div>
+            <div class="mb-3">
+            <label for="password">Password :</label>
         <input type="password" name="password" id="password">
-        <button>Login</button><br><br>
-        <a href="chat">chat with dr.Chiki as a guest</a>
+            </div>
+
+            <button type="submit" class="btn btn-primary w-20">Login</button>
+            <br>
+            <a href="chat">chat with dr.Chiki as a guest</a>
+
+        </div>
+
     </form>
 </div>
 
