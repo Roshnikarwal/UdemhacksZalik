@@ -30,9 +30,12 @@
 <div><h1>HealT</h1></div>
 <div>
     <form>
-        <input type="radio" id="patient">patient
+        <label for="patient">Patient</label>
+        <input type="radio" id="patient" name="role" value="patient">
+        <label for="doctor">Doctor</label>
+        <input type="radio" id="doctor" name="role" value="doctor">
+        <br>
 
-        <input type="radio" id="doctor">doctor<br>
         <label for="Email">Email</label>
         <input type="email" name="Email" id="Email"><br>
         <label for="password">Password</label>
