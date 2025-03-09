@@ -162,13 +162,30 @@
             </div>
             
                 <div id="add-value-section">
-                    <input type="text" id="new-value" placeholder="Enter a new value">
-                    <button id="add-value">Add Value</button>
-                </div>
+                    <table class="patient-list">
+                        <thead> <tr>
+                            <th>
+                                Doctors List
+                            </th>
+                        </tr> </thead>
+                        <tbody>
+                        <tr th:each="doctors : ${doctors}">
+                            <td>
+                                <var th:text="${doctor.name}">Doctor's Name</var>
+                                <var th:text="${doctor.doctorId}">Doctor ID</var>
+                                &#32;&#32;&#32;&#32;
+                                <button th:onclick="|window.location.href='/doctor-info?patientId=' + ${doctor.doctorID}|" >
+                                    View Info
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                    
+                    </table></div>
             </div>
                 <div class="this.clinic">
                     <div class="name-image">
-                        <var class="name">Clinics</var>
+                        <var class="name">Clinics name</var>
                         <span><img src="https://cdn-icons-png.freepik.com/512/8638/8638075.png" alt="profile-pic" width="70px" height="70px"></span>
                         </div>
                         <hr>

@@ -13,9 +13,6 @@ public class ZalikApplication {
 		SpringApplication.run(ZalikApplication.class, args);
 		dataSourceConfig = new DataSourceConfig();
 		dataSourceConfig.dataSource();
-
-		patientController = new PatientController(dataSourceConfig.jdbcTemplate());
-		System.out.println(patientController.getPatients());
 	}
 
 

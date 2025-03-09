@@ -9,7 +9,7 @@ import udemhacksZalik.Zalik.models.UserService;
 public class DoctorController {
     private UserService userService;
 
-    public List<Doctor> getPatients() {
+    public List<Doctor> getDoctors() {
         String sql = "SELECT * FROM doctors";
         return userService.jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Doctor.class));
     }
