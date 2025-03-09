@@ -291,3 +291,30 @@ thead{
     width: 30%;
     border: 2px solid blue;
 }
+footer {
+    background-color: #6c9ecf;
+    padding: 15px 20px;
+    text-align: center;
+    border-radius: 10px;
+    margin-top: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+footer a {
+    color: #1b1b60;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: white;
+}
+
+#left{
+    border-radius: 50%;
+}
+.image img{
+    border-radius: 50%;
+}
