@@ -10,4 +10,20 @@ public class HomeController {
     public String home() {
         return "home"; // Refers to src/main/resources/templates/index.html
     }
+
+    @GetMapping("/login")
+    public String login() {
+        return "index";
+    }
+
+    @GetMapping("/doctor")
+    public String doctor() {
+        return "doctor-page";
+    }
+
+    @GetMapping("/patient")
+    public String patient() {
+        return "patient-page";
+    }
+
 }
