@@ -19,7 +19,7 @@ public class Doctor {
     }
 
 
-    public Doctor(int doctorId,String name, String email, String clinic, String phone, String clinicAddress, List<Patient> listtOfPatient, boolean isAvailable) {
+    public Doctor(int doctorId,String name, String email, String clinic, String phone, String clinicAddress, List<Patient> listOfPatient, boolean isAvailable) {
         this.doctorId = doctorId;
         this.name = name;
         this.email = email;
@@ -73,8 +73,8 @@ public class Doctor {
     public List<Patient> getPatientList() {
         return Collections.unmodifiableList(listOfPatient);
     }
-    public void setListtOfPatient(List<Patient> listtOfPatient) {
-        this.listtOfPatient = listtOfPatient;
+    public void setListtOfPatient(List<Patient> listOfPatient) {
+        this.listOfPatient = listOfPatient;
     }
     public boolean isAvailable() {
         return isAvailable;

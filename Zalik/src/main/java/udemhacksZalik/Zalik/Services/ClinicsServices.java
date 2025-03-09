@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import udemhacksZalik.Zalik.models.Doctor;
 import udemhacksZalik.Zalik.models.Patient;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -17,7 +18,7 @@ public class ClinicsServices {
 
     public List<Doctor> getAllDoctors() {
         String sql = "SELECT * FROM doctors";
-        List<Patient> currentPatients = jdbcTemplate.query(sql,rs -> {new List<Patient>()});
+        List<Patient> currentPatients = jdbcTemplate.query(sql,rs -> {new ArrayList<Patient>(rs.getRow());});
         return jdbcTemplate.query(sql,(rs, rowNum) -> new Doctor(
                 rs.getInt("doctorId"),
                 rs.getString("name"),
@@ -25,7 +26,7 @@ public class ClinicsServices {
                 rs.getString("clinic"),
                 rs.getString("phone"),
                 rs.getString("clinic_adress"),
-               currentPatients,
+                currentPatients,
                 rs.getBoolean("is_available")
         ));
     }
