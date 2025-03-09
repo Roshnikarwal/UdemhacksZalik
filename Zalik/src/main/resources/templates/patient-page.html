@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="styles.css">
+    <title>HealT/Patient</title>
+    <style>
+        header{
+            background-color: #6c9ecf;
+        }
+
+        h1{
+            font-size: 50px;
+            font-family: 'Segoe UI', sans-serif;
+        }
+        .title{
+            display: flex;
+            /* padding: 5px; */
+            margin-left: 25px;
+            margin-right: 25px;
+            align-content: center;
+            justify-content: center;
+            flex-direction: row-reverse;
+            flex-wrap: wrap;
+        }
+        #left{
+
+            display: inline-block;
+            margin-right: 10px;
+            padding: 0px 5px;
+            text-align: center;
+
+        }
+
+        #right{
+
+            display: inline-block;
+            margin-left: 10px;
+            padding: 20px 5px;
+            height: 100px;
+            text-align: center;
+            align-items: center;
+        }
+        img #left{
+            border-radius: 50px;
+        }
+        p{
+            font-size: 20px;
+            text-align: center;
+        }
+        thead{
+            color: white;
+        }
+        .name{
+            font-size: 30px;
+        }
+        .information{
+            font-size: 20px;
+            padding-bottom: 20px;
+        }
+        .patient-info{
+            border: 5px solid blue;
+        }
+
+        #patient-buttons {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            gap: 15px;
+            padding: 10px;
+        }
+
+        .patient-button {
+            background-color: #4A90E2;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            width: 250px;
+            text-align: center;
+            flex: 1;
+            max-width: 250px;
+        }
+
+        .patient-button:hover {
+            background-color: #3885a8;
+        }
+
+        #dr-chiki {
+            position: relative;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .chat-box {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            width: 300px;
+            background-color: #ffffff;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .chat-box h3 {
+            background-color: #4A90E2;
+            color: white;
+            padding: 10px;
+            margin: 0;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+        }
+
+        .chat-box h3 img {
+            width: 24px;
+            height: 24px;
+            margin-left: 10px;
+        }
+
+        .chat-messages {
+            flex-grow: 1;
+            padding: 10px;
+            overflow-y: auto;
+            max-height: 200px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .chat-messages p {
+            margin: 0 0 10px 0;
+            font-size: 14px;
+        }
+
+        .chat-input {
+            display: flex;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+        }
+
+        .chat-input input {
+            flex-grow: 1;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .chat-input button {
+            background-color: #4A90E2;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            margin-left: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .chat-input button:hover {
+            background-color: #357ABD;
+        }
+        footer a {
+            color: #1b1b60;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: white;
+        }
+
+        #left{
+            border-radius: 50%;
+        }
+        th img{
+            border-radius: 50%;
+        }
+        span img{
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="title">
+            <table>
+                <thead>
+                    <br>
+                    Get in contact with your doctor directly! :&rpar;</thead>
+                <tr>
+                    <td>
+                         <h1 id="right">Heal-T </h1>
+                    </td>
+                    <th> <img id="left" src="https://static.vecteezy.com/system/resources/previews/037/372/142/non_2x/plant-health-icon-line-illustration-vector.jpg" alt="logo" width="100px" height="100px"></th>
+                </tr>
+            </table>
+        </div>
+        </header>
+        <br>
+        <br>
+        <br>
+        <br>
+    <div class="patient-page">
+        <div class="patient-info">
+            <div class="name-image">
+                <var class="name">Patient Name</var>
+                <span><img src="https://cdn-icons-png.freepik.com/512/8638/8638075.png" alt="profile-pic" width="70px" height="70px"></span>
+            </div>
+            <hr>
+            <div class="information"><var ><a href="mailto:someone@example.come">patient@email.com</a></var></div>
+            <div class="information"><var ><a href="tel: +1234567890"> Patient phone</a></var></div>
+            <div class="information"><var >Postal Code of Patient</var></div>
+<!--        change vars to information of patient-->
+        </div>
+
+    <div id="patient-buttons">
+        <div class="button"><button class="patient-button" onclick=""> Find Doctor. Get in Contact With a clinic</button></div>  
+        <div class="button"><button class="patient-button" onclick="">Cancel Doctor/Clinic</button></div>   
+        <div class="button"> <button class="patient-button" onclick=""> Get Waistlisted for a doctor</button></div> 
+    </div> 
+  </div>  
+
+  <div id="dr-chiki">
+    <!-- DR Chiki clinic AI Bot -->
+    <div class="chat-box">
+        <h3>Dr Chicki's Clinic <span><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpRV3XPh3LwkqlZeIzwkHWW7_EJNNt1kSwGg&s" alt="DrChikiFace"></span></h3>
+        <div class="chat-messages">
+            <!-- Chat messages will go here -->
+            <p>Hello! How can I assist you today?</p>
+        </div>
+        <div class="chat-input">
+            <input type="text" placeholder="Type your message..." id="user-input">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+</div>
+
+    <div class="image"><img src="https://plus.unsplash.com/premium_photo-1682130157004-057c137d96d5?q=80&w=1032&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Hospiatl Waiting Room"></div>
+    <script>
+        async function sendMessage() {
+            const userInput = document.getElementById("user-input").value;
+            const chatMessages = document.querySelector(".chat-messages");
+
+            if (!userInput.trim()) return; // Prevent empty messages
+
+            // Display user's message in chat
+            chatMessages.innerHTML += `<p><strong>You:</strong> ${userInput}</p>`;
+
+            try {
+                console.log("Sending message to backend:", userInput);
+
+                const response = await fetch("http://localhost:8080/api/gemini/chat?message=" + encodeURIComponent(userInput), {
+                    method: "GET",
+                    headers: {
+                        "Content-Type": "application/json"
+                    }
+                });
+
+                console.log("Response received:", response);
+
+                if (!response.ok) throw new Error("Server error: " + response.status);
+
+                const reply = await response.text();
+                console.log("Reply from server:", reply);
+
+                // Display bot's response
+                chatMessages.innerHTML += `<p><strong>Dr Chiki:</strong> ${reply}</p>`;
+
+            } catch (error) {
+                console.error("Error:", error);
+                chatMessages.innerHTML += `<p><strong>Error:</strong> Could not fetch response. Check console.</p>`;
+            }
+
+            document.getElementById("user-input").value = ""; // Clear input field
+        }
+
+    </script>
+</body>
+<footer>
+    <a href="home.html"> Back to Home Page</a>
+</footer>
+</html>
