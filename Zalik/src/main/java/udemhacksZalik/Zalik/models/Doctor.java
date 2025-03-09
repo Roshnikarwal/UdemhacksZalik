@@ -1,28 +1,44 @@
 package udemhacksZalik.Zalik.models;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Doctor {
+    private int doctorId;
     private String name;
     private String email;
     private String clinic;
     private String phone;
     private String clinicAddress;
-    private List<Patient> listtOfPatient;
+    private List<Patient> listOfPatient;
     private boolean isAvailable;
 
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    private String password;
+
     public Doctor() {
+        listOfPatient = new ArrayList<>();
     }
 
 
-    public Doctor(String name, String email, String clinic, String phone, String clinicAddress, List<Patient> listtOfPatient, boolean isAvailable) {
+    public Doctor(int doctorId,String name, String email, String clinic, String phone, String clinicAddress, List<Patient> listOfPatient, boolean isAvailable) {
+        this.doctorId = doctorId;
         this.name = name;
         this.email = email;
         this.clinic = clinic;
         this.phone = phone;
         this.clinicAddress = clinicAddress;
-        this.listtOfPatient = listtOfPatient;
+        this.listOfPatient = listOfPatient;
         this.isAvailable = isAvailable;
+        this.password = password;
     }
 
     public String getName() {
@@ -65,12 +81,11 @@ public class Doctor {
         this.clinicAddress = clinicAddress;
     }
 
-    public List<Patient> getListtOfPatient() {
-        return listtOfPatient;
+    public List<Patient> getPatientList() {
+        return Collections.unmodifiableList(listOfPatient);
     }
-
-    public void setListtOfPatient(List<Patient> listtOfPatient) {
-        this.listtOfPatient = listtOfPatient;
+    public void setListtOfPatient(List<Patient> listOfPatient) {
+        this.listOfPatient = listOfPatient;
     }
     public boolean isAvailable() {
         return isAvailable;
