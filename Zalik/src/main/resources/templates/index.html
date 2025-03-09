@@ -48,8 +48,9 @@
     </style>
 </head>
 
-<div class="form-container">
+
 <body>
+<div class="form-container">
 <div class="container">
     <h1>Welcome to My Spring Boot Website!</h1>
     <p>This is a simple website served by a Spring Boot backend.</p>
@@ -63,7 +64,7 @@
 
 <div><h1>HealT</h1></div>
 <div>
-    <form>
+    <form id="login">
         <div class="mb-3">
             <div class="form-check form-check-inline">
                 <input class="form-check-input" type="radio" id="patient" name="role" value="patient">
@@ -87,6 +88,52 @@
             <a href="chat">chat with dr.Chiki as a guest</a>
         </div>
     </form>
-</div>
-    </body>
-    </html>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const selectedRole = document.querySelector('input[name="role"]:checked');
+            const email = document.getElementById('Email').value;
+            const password = document.getElementById('password').value;
+
+            if (selectedRole) {
+                const formData = {
+                    email: email,
+                    password: password,
+                    role: selectedRole.value
+                };
+
+                fetch('http://localhost:8080/auth/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(formData)
+                })
+                    .then(response => {
+                        if (response.ok) {
+                            return response.json();
+                        } else {
+                            return response.json().then(error => {
+                                throw new Error(error.error || 'Login failed');
+                            });
+                        }
+                    })
+                    .then(data => {
+                        console.log('Success:', data);
+                        alert(`Login successful! Role: ${data.role}, Token: ${data.token}`);
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        alert(error.message);
+                    });
+            } else {
+                alert('Please select a role.');
+            }
+        });
+    </script>
+ </div>
+</body>
+
+</html>

@@ -8,15 +8,26 @@ public class Patient {
     private String postalCode;
     private Doctor doctor;
 
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    private String password;
+
     public Patient() {
     }
-    public Patient(String name, String email, String phone, boolean hasADoctor, String postalCode, Doctor doctor) {
+    public Patient(String name, String email, String phone, boolean hasADoctor, String postalCode, Doctor doctor, String password) {
         this.name = name;
         this.email = email;
         this.phone = phone;
         this.hasADoctor = hasADoctor;
         this.postalCode = postalCode;
         this.doctor = doctor;
+        this.password = password;
     }
 
     public String getName() {

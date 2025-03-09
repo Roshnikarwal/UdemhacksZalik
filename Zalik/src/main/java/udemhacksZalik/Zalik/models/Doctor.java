@@ -11,11 +11,21 @@ public class Doctor {
     private List<Patient> listtOfPatient;
     private boolean isAvailable;
 
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    private String password;
+
     public Doctor() {
     }
 
 
-    public Doctor(String name, String email, String clinic, String phone, String clinicAddress, List<Patient> listtOfPatient, boolean isAvailable) {
+    public Doctor(String name, String email, String clinic, String phone, String clinicAddress, List<Patient> listtOfPatient, boolean isAvailable, String password) {
         this.name = name;
         this.email = email;
         this.clinic = clinic;
@@ -23,6 +33,7 @@ public class Doctor {
         this.clinicAddress = clinicAddress;
         this.listtOfPatient = listtOfPatient;
         this.isAvailable = isAvailable;
+        this.password = password;
     }
 
     public String getName() {
