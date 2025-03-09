@@ -1,11 +1,13 @@
 package udemhacksZalik.Zalik.models;
 
 public class Patient {
+    private int patientId;
     private String name;
     private String email;
     private String phone;
-    private boolean hasADoctor;
+    private boolean hasDoctor;
     private String postalCode;
+    private Integer doctorId;
     private Doctor doctor;
 
     public String getPassword() {
@@ -24,17 +26,14 @@ public class Patient {
         this.name = name;
         this.email = email;
         this.phone = phone;
-        this.hasADoctor = hasADoctor;
+        this.hasDoctor = hasADoctor;
         this.postalCode = postalCode;
         this.doctor = doctor;
         this.password = password;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
+    public Patient(int patientId, String name, String email, String phone, boolean hasDoctor, String postalCode, Integer doctorId) {
+        this.patientId = patientId;
         this.name = name;
     }
 
@@ -52,29 +51,23 @@ public class Patient {
 
     public void setPhone(String phone) {
         this.phone = phone;
-    }
-
-    public boolean isHasADoctor() {
-        return hasADoctor;
-    }
-
-    public void setHasADoctor(boolean hasADoctor) {
-        this.hasADoctor = hasADoctor;
-    }
-
-    public String getPostalCode() {
-        return postalCode;
-    }
-
-    public void setPostalCode(String postalCode) {
+        this.hasDoctor = hasDoctor;
         this.postalCode = postalCode;
+        this.doctorId = doctorId;
     }
 
-    public Doctor getDoctor() {
-        return doctor;
-    }
+    // Getters and Setters
+    public int getPatientId() { return patientId; }
+    public void setPatientId(int patientId) { this.patientId = patientId; }
 
-    public void setDoctor(Doctor doctor) {
-        this.doctor = doctor;
-    }
+    public String getName() { return name; }
+    public void setName(String name) { this.name = name; }
+    public boolean hasDoctor() { return hasDoctor; }
+    public void setHasDoctor(boolean hasDoctor) { this.hasDoctor = hasDoctor; }
+
+    public String getPostalCode() { return postalCode; }
+    public void setPostalCode(String postalCode) { this.postalCode = postalCode; }
+
+    public Integer getDoctorId() { return doctorId; }
+    public void setDoctorId(Integer doctorId) { this.doctorId = doctorId; }
 }

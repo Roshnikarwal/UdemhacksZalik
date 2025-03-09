@@ -3,8 +3,136 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
     <title>HealT/view-patients</title>
+    <head>
+        <style>
+        header{
+            background-color: #6c9ecf;
+        }
+        
+        h1{
+            font-size: 50px;
+            font-family: 'Segoe UI', sans-serif;
+        }
+        .title{
+            display: flex;
+            /* padding: 5px; */
+            margin-left: 25px;
+            margin-right: 25px;
+            align-content: center;
+            justify-content: center;
+            flex-direction: row-reverse;
+            flex-wrap: wrap;
+        }
+        #left{
+        
+            display: inline-block;
+            margin-right: 10px;
+            padding: 0px 5px;
+            text-align: center;
+        
+        }
+        
+        #right{
+            
+            display: inline-block;
+            margin-left: 10px;
+            padding: 20px 5px;
+            height: 100px;
+            text-align: center;
+            align-items: center; 
+        }
+        img #left{
+            border-radius: 50px;
+        }
+        p{
+            font-size: 20px;
+            text-align: center;
+        }
+        thead{
+            color: white;
+        }
+        .name{
+            font-size: 30px;
+        }
+        .information{
+            font-size: 20px;
+            padding-bottom: 20px;
+        }
+        
+         .clinic-list {
+        width: 60%; 
+        border-collapse: collapse;
+        
+        }
+
+        #main-clinic-list{
+            display: flex;
+            gap: 15px;
+        }
+        .patient-clinic-output{
+            display: flex;
+            gap: 10px;
+            flex-direction: column;
+        }
+        main .patient-clinic-output{
+            width: 60%;
+        }
+        .this-patient{
+            width: 30%;
+            border: 2px solid blue;
+        }
+        footer a {
+            color: #1b1b60;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: white;
+        }
+
+        #left{
+            border-radius: 50%;
+        }
+        td img{
+            border-radius: 50%;
+        }
+
+         .scrollable-container {
+            width: 90%;
+            height: auto;
+            overflow-y: auto;
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-collapse: collapse;
+        }
+        .value-item {
+            padding: 5px;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .value-item button {
+            background: #3b65af;
+            color: white;
+            border: none;
+            padding: 3px 8px;
+            cursor: pointer;
+        }
+        .value-item button:hover {
+            background: #af3b48;
+        }
+        #add-value {
+            width: auto;
+            margin-top: 10px;
+        }
+</style>
+    </head>
 </head>
 <body>
     <header>
@@ -26,7 +154,98 @@
         <br>
         <br>
         <br>
-      <main id="main-clinic-list">
+        <main id="main-clinic-list">
+            <div class="patient-clinic-output">
+                <h2>Clinics List</h2>
+                <div class="scrollable-container" id="values-container">
+                <!-- Values will be added here  -->
+            </div>
+            
+                <div id="add-value-section">
+                    <table class="patient-list">
+                        <thead> <tr>
+                            <th>
+                                Doctors List
+                            </th>
+                        </tr> </thead>
+                        <tbody>
+                        <tr th:each="doctors : ${doctors}">
+                            <td>
+                                <var th:text="${doctor.name}">Doctor's Name</var>
+                                <var th:text="${doctor.doctorId}">Doctor ID</var>
+                                &#32;&#32;&#32;&#32;
+                                <button th:onclick="|window.location.href='/doctor-info?patientId=' + ${doctor.doctorID}|" >
+                                    View Info
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                    
+                    </table></div>
+            </div>
+                <div class="this.clinic">
+                    <div class="name-image">
+                        <var class="name">Clinics name</var>
+                        <span><img src="https://cdn-icons-png.freepik.com/512/8638/8638075.png" alt="profile-pic" width="70px" height="70px"></span>
+                        </div>
+                        <hr>
+                        <div class="information"><var ><a href="mailto:someone@example.come">Doctor@email.com</a></var></div>
+                        <div class="information"><var ><a href="tel: +1234567890"> Doctor phone</a></var></div>
+                        <div class="information"><var >Clinic Name</var></div>
+                        <div class="information"><var >Address of Clinic</var></div>
+                    </div>
+                </div>
+            
+
+
+
+
+              <script>
+                // Get references to the DOM elements
+                const container = document.getElementById('values-container');
+                const newValueInput = document.getElementById('new-value');
+                const addValueButton = document.getElementById('add-value');
+            
+                // Function to add a new value
+                function addValue() {
+                  const value = newValueInput.value.trim();
+                  if (value) {
+                    const valueItem = document.createElement('div');
+                    valueItem.className = 'value-item';
+            
+                    // Add the value text
+                    const valueText = document.createElement('span');
+                    valueText.textContent = value;
+                    valueItem.appendChild(valueText);
+            
+                    // Add a remove button
+                    const removeButton = document.createElement('button');
+                    removeButton.textContent = 'Remove';
+                    removeButton.onclick = function () {
+                      container.removeChild(valueItem); // Remove the item when the button is clicked
+                    };
+                    valueItem.appendChild(removeButton);
+            
+                    // Append the new item to the container
+                    container.appendChild(valueItem);
+            
+                    // Clear the input field
+                    newValueInput.value = '';
+                  }
+                }
+            
+                // Add event listener to the "Add Value" button
+                addValueButton.addEventListener('click', addValue);
+            
+                // Optional: Allow pressing "Enter" to add a value
+                newValueInput.addEventListener('keypress', function (e) {
+                  if (e.key === 'Enter') {
+                    addValue();
+                  }
+                });
+              </script>
+    </main>
+      <!-- <main id="main-clinic-list">
         <table class="clinic-list">
             <thead> <tr>
                 <th>
@@ -64,7 +283,7 @@
     <!--        change vars to information of Doctor-->
             </div>
         </div>
-    </main>
+    </main> -->
     <div class="image"><img src="https://plus.unsplash.com/premium_photo-1682130157004-057c137d96d5?q=80&w=1032&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Hospiatl Waiting Room"></div>
 </body>
 <footer>
