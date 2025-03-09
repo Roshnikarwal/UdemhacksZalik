@@ -3,8 +3,133 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
     <title>HealT/view-patients</title>
+    <head>
+        <style>
+        header{
+            background-color: #6c9ecf;
+        }
+        
+        h1{
+            font-size: 50px;
+            font-family: 'Segoe UI', sans-serif;
+        }
+        .title{
+            display: flex;
+            /* padding: 5px; */
+            margin-left: 25px;
+            margin-right: 25px;
+            align-content: center;
+            justify-content: center;
+            flex-direction: row-reverse;
+            flex-wrap: wrap;
+        }
+        #left{
+        
+            display: inline-block;
+            margin-right: 10px;
+            padding: 0px 5px;
+            text-align: center;
+        
+        }
+        
+        #right{
+            
+            display: inline-block;
+            margin-left: 10px;
+            padding: 20px 5px;
+            height: 100px;
+            text-align: center;
+            align-items: center; 
+        }
+        img #left{
+            border-radius: 50px;
+        }
+        p{
+            font-size: 20px;
+            text-align: center;
+        }
+        thead{
+            color: white;
+        }
+        .name{
+            font-size: 30px;
+        }
+        .information{
+            font-size: 20px;
+            padding-bottom: 20px;
+        }
+        
+
+.clinic-list {
+    width: 60%; 
+    border-collapse: collapse;
+    
+}
+
+.clinic-list td {
+    border: 4px solid #325e83; 
+    padding: 20px 0; 
+    font-size: 20px; 
+    display: flex; 
+    align-items: center; 
+    justify-content: space-between; 
+    width: 100%; 
+    margin-bottom: 5px;
+}
+
+.clinic-list td var {
+    padding-right: 60px; 
+    flex-grow: 1; 
+}
+
+.clinic-list td button {
+    background-color: #4A90E2; 
+    color: white; 
+    border: none;
+    padding: 10px 20px; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    font-size: 16px; 
+    flex-shrink: 0; 
+}
+
+.clinic-list td button:hover {
+    background-color: #357ABD; 
+}
+
+#main-clinic-list{
+    display: flex;
+    gap: 15px;
+}
+
+.this-clinic{
+    width: 30%;
+    border: 2px solid blue;
+}
+footer a {
+    color: #1b1b60;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: white;
+}
+
+#left{
+    border-radius: 50%;
+}
+th img{
+    border-radius: 50%;
+}
+span img{
+    border-radius: 50%;
+}
+</style>
+    </head>
 </head>
 <body>
     <header>
