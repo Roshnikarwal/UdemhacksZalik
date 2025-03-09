@@ -48,9 +48,9 @@ p{
     font-size: 20px;
     text-align: center;
 }
-thead{
+/* thead{
     color: white;
-}
+} */
 .name{
     font-size: 30px;
 }
@@ -64,42 +64,19 @@ thead{
     border-collapse: collapse;
     
 }
-.patient-list td {
-    border: 4px solid #325e83; 
-    padding: 20px 0; 
-    font-size: 20px; 
-    display: flex; 
-    align-items: center; 
-    justify-content: space-between; 
-    width: 100%; 
-    margin-bottom: 5px;
-}
-
-.patient-list td var {
-    padding-right: 60px; 
-    flex-grow: 1; 
-}
-
-.patient-list td button {
-    background-color: #4A90E2; 
-    color: white; 
-    border: none;
-    padding: 10px 20px; 
-    border-radius: 5px; 
-    cursor: pointer; 
-    font-size: 16px; 
-    flex-shrink: 0; 
-}
-
-.patient-list td button:hover {
-    background-color: #357ABD; 
-}
 
 #main-patient-list{
     display: flex;
     gap: 15px;
 }
-
+.patient-list-output{
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+}
+main .patient-list-output{
+    width: 60%;
+}
 .this-patient{
     width: 30%;
     border: 2px solid blue;
@@ -119,9 +96,40 @@ footer a:hover {
 #left{
     border-radius: 50%;
 }
-.image img{
+td img{
     border-radius: 50%;
 }
+
+.scrollable-container {
+      width: 90%;
+      height: auto;
+      overflow-y: auto;
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-collapse: collapse;
+    }
+    .value-item {
+      padding: 5px;
+      border-bottom: 1px solid #eee;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .value-item button {
+      background: #3b65af;
+      color: white;
+      border: none;
+      padding: 3px 8px;
+      cursor: pointer;
+    }
+    .value-item button:hover {
+      background: #af3b48;
+    }
+    #add-value {
+      width: auto;
+      margin-top: 10px;
+    }
     </style>
 </head>
 <body>
@@ -145,39 +153,94 @@ footer a:hover {
         <br>
         <br>
       <main id="main-patient-list">
-        <table class="patient-list">
-            <thead> <tr>
-                <th>
-                  Patient List  
-                </th>
-            </tr> </thead>
-            <tbody>
-                <tr>
-                    <td><var>Patient name</var> &#32;&#32;&#32;&#32;  <button onclick="/patient-page.html.patient-info">view info</button></td>
-                </tr>
-                <tr>
-                    <td><var>Patient name</var> &#32;&#32;&#32;&#32;  <button onclick="/patient-page.html.patient-info">view info</button></td>
-                </tr>
-                <tr>
-                    <td><var>Patient name</var> &#32;&#32;&#32;&#32;  <button onclick="/patient-page.html.patient-info">view info</button></td>
-                </tr>
-                <tr>
-                    <td><var>Patient name</var> &#32;&#32;&#32;&#32;  <button onclick="/patient-page.html.patient-info">view info</button></td>
-                </tr>
-            </tbody>
-        
-        </table>
-
-        <div class="this.patient">
-            <div class="name-image">
-                <var class="name">Patient Name</var>
-                <span><img src="https://cdn-icons-png.freepik.com/512/8638/8638075.png" alt="profile-pic" width="70px" height="70px"></span>
+            <div class="patient-list-output">
+                <h2>Patient List</h2>
+                <div class="scrollable-container" id="values-container">
+                <!-- Values will be added here  -->
+            </div>
+            
+                <div id="add-value-section">
+                    <table class="patient-list">
+                        <thead> <tr>
+                            <th>
+                                Patient List
+                            </th>
+                        </tr> </thead>
+                        <tbody>
+                        <tr th:each="patient : ${patients}">
+                            <td>
+                                <var th:text="${patient.name}">Patient Name</var>
+                                &#32;&#32;&#32;&#32;
+                                <button th:onclick="|window.location.href='/patient-info?patientId=' + ${patient.patientId}|" >
+                                    View Info
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                    
+                    </table>
                 </div>
-                <hr>
-                <div class="information"><var ><a href="mailto:someone@example.come">patient@email.com</a></var></div>
-                <div class="information"><var ><a href="tel: +1234567890"> Patient phone</a></var></div>
-                <div class="information"><var >Postal Code of Patient</var>
-        </div>
+            </div>
+                <div class="this.patient">
+                    <div class="name-image">
+                        <var class="name">Patient Name</var>
+                        <span><img src="https://cdn-icons-png.freepik.com/512/8638/8638075.png" alt="profile-pic" width="70px" height="70px"></span>
+                        </div>
+                        <hr>
+                        <div class="information"><var ><a href="mailto:someone@example.come">patient@email.com</a></var></div>
+                        <div class="information"><var ><a href="tel: +1234567890"> Patient phone</a></var></div>
+                        <div class="information"><var >Postal Code of Patient</var>
+                    </div>
+                </div>
+            
+
+
+
+
+              <script>
+                // Get references to the DOM elements
+                const container = document.getElementById('values-container');
+                const newValueInput = document.getElementById('new-value');
+                const addValueButton = document.getElementById('add-value');
+            
+                // Function to add a new value
+                function addValue() {
+                  const value = newValueInput.value.trim();
+                  if (value) {
+                    const valueItem = document.createElement('div');
+                    valueItem.className = 'value-item';
+            
+                    // Add the value text
+                    const valueText = document.createElement('span');
+                    valueText.textContent = value;
+                    valueItem.appendChild(valueText);
+            
+                    // Add a remove button
+                    const removeButton = document.createElement('button');
+                    removeButton.textContent = 'Remove';
+                    removeButton.onclick = function () {
+                      container.removeChild(valueItem); // Remove the item when the button is clicked
+                    };
+                    valueItem.appendChild(removeButton);
+            
+                    // Append the new item to the container
+                    container.appendChild(valueItem);
+            
+                    // Clear the input field
+                    newValueInput.value = '';
+                  }
+                }
+            
+                // Add event listener to the "Add Value" button
+                addValueButton.addEventListener('click', addValue);
+            
+                // Optional: Allow pressing "Enter" to add a value
+                newValueInput.addEventListener('keypress', function (e) {
+                  if (e.key === 'Enter') {
+                    addValue();
+                  }
+                });
+              </script>
     </main>
     <div class="image"><img src="https://plus.unsplash.com/premium_photo-1682130157004-057c137d96d5?q=80&w=1032&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Hospiatl Waiting Room"></div>
 </body>
