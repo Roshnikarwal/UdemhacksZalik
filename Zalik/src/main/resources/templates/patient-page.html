@@ -54,12 +54,52 @@
             <p>Hello! How can I assist you today?</p>
         </div>
         <div class="chat-input">
-            <input type="text" placeholder="Type your message...">
-            <button>Send</button>
+            <input type="text" placeholder="Type your message..." id="user-input">
+            <button onclick="sendMessage()">Send</button>
         </div>
     </div>
 </div>
-<div class="image"><img src="https://plus.unsplash.com/premium_photo-1682130157004-057c137d96d5?q=80&w=1032&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Hospiatl Waiting Room"></div>
+
+    <div class="image"><img src="https://plus.unsplash.com/premium_photo-1682130157004-057c137d96d5?q=80&w=1032&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Hospiatl Waiting Room"></div>
+    <script>
+        async function sendMessage() {
+            const userInput = document.getElementById("user-input").value;
+            const chatMessages = document.querySelector(".chat-messages");
+
+            if (!userInput.trim()) return; // Prevent empty messages
+
+            // Display user's message in chat
+            chatMessages.innerHTML += `<p><strong>You:</strong> ${userInput}</p>`;
+
+            try {
+                console.log("Sending message to backend:", userInput);
+
+                const response = await fetch("http://localhost:8080/api/gemini/chat?message=" + encodeURIComponent(userInput), {
+                    method: "GET",
+                    headers: {
+                        "Content-Type": "application/json"
+                    }
+                });
+
+                console.log("Response received:", response);
+
+                if (!response.ok) throw new Error("Server error: " + response.status);
+
+                const reply = await response.text();
+                console.log("Reply from server:", reply);
+
+                // Display bot's response
+                chatMessages.innerHTML += `<p><strong>Dr Chiki:</strong> ${reply}</p>`;
+
+            } catch (error) {
+                console.error("Error:", error);
+                chatMessages.innerHTML += `<p><strong>Error:</strong> Could not fetch response. Check console.</p>`;
+            }
+
+            document.getElementById("user-input").value = ""; // Clear input field
+        }
+
+    </script>
 </body>
 <footer>
     <a href="home.html"> Back to Home Page</a>
