@@ -1,0 +1,293 @@
+header{
+    background-color: #6c9ecf;
+}
+
+h1{
+    font-size: 50px;
+    font-family: 'Segoe UI', sans-serif;
+}
+.title{
+    display: flex;
+    /* padding: 5px; */
+    margin-left: 25px;
+    margin-right: 25px;
+    align-content: center;
+    justify-content: center;
+    flex-direction: row-reverse;
+    flex-wrap: wrap;
+}
+#left{
+
+    display: inline-block;
+    margin-right: 10px;
+    padding: 0px 5px;
+    text-align: center;
+
+}
+
+#right{
+    
+    display: inline-block;
+    margin-left: 10px;
+    padding: 20px 5px;
+    height: 100px;
+    text-align: center;
+    align-items: center; 
+}
+img #left{
+    border-radius: 50px;
+}
+p{
+    font-size: 20px;
+    text-align: center;
+}
+thead{
+    color: white;
+}
+.name{
+    font-size: 30px;
+}
+.information{
+    font-size: 20px;
+    padding-bottom: 20px;
+}
+.patient-info{
+    border: 5px solid blue;
+}
+
+#patient-buttons {
+    display: flex;
+    flex-direction: row; 
+    justify-content: flex-start; 
+    gap: 15px; 
+    padding: 10px;
+}
+
+.patient-button {
+    background-color: #4A90E2; 
+    color: white; 
+    padding: 10px 20px; 
+    border: none; 
+    border-radius: 10px; 
+    font-size: 16px; 
+    cursor: pointer; 
+    transition: background-color 0.3s ease; 
+    width: 250px; 
+    text-align: center;
+    flex: 1;
+    max-width: 250px; 
+}
+
+.patient-button:hover {
+    background-color: #3885a8; 
+}
+
+#dr-chiki {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.chat-box {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    width: 300px;
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-box h3 {
+    background-color: #4A90E2;
+    color: white;
+    padding: 10px;
+    margin: 0;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+}
+
+.chat-box h3 img {
+    width: 24px;
+    height: 24px;
+    margin-left: 10px;
+}
+
+.chat-messages {
+    flex-grow: 1;
+    padding: 10px;
+    overflow-y: auto;
+    max-height: 200px;
+    border-bottom: 1px solid #ccc;
+}
+
+.chat-messages p {
+    margin: 0 0 10px 0;
+    font-size: 14px;
+}
+
+.chat-input {
+    display: flex;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.chat-input input {
+    flex-grow: 1;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.chat-input button {
+    background-color: #4A90E2;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    margin-left: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.chat-input button:hover {
+    background-color: #357ABD;
+}
+.doctor-info{
+    border: 5px solid blue;
+}
+
+#doctor-buttons {
+    display: flex;
+    flex-direction: row; 
+    justify-content: flex-start; 
+    gap: 15px; 
+    padding: 10px;
+}
+
+.doctor-button {
+    background-color: #4A90E2; 
+    color: white; 
+    padding: 10px 20px; 
+    border: none; 
+    border-radius: 10px; 
+    font-size: 16px; 
+    cursor: pointer; 
+    transition: background-color 0.3s ease; 
+    width: 250px; 
+    text-align: center;
+    flex: 1;
+    max-width: 250px; 
+}
+
+.doctor-button:hover {
+    background-color: #3885a8; 
+}
+
+
+.patient-list {
+    width: 60%; 
+    border-collapse: collapse;
+    
+}
+
+.patient-list td {
+    border: 4px solid #325e83; 
+    padding: 20px 0; 
+    font-size: 20px; 
+    display: flex; 
+    align-items: center; 
+    justify-content: space-between; 
+    width: 100%; 
+    margin-bottom: 5px;
+}
+
+.patient-list td var {
+    padding-right: 60px; 
+    flex-grow: 1; 
+}
+
+.patient-list td button {
+    background-color: #4A90E2; 
+    color: white; 
+    border: none;
+    padding: 10px 20px; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    font-size: 16px; 
+    flex-shrink: 0; 
+}
+
+.patient-list td button:hover {
+    background-color: #357ABD; 
+}
+
+#main-patient-list{
+    display: flex;
+    gap: 15px;
+}
+
+.this-patient{
+    width: 30%;
+    border: 2px solid blue;
+}
+
+/* ---------------------------------------------------- */
+
+
+.clinic-list {
+    width: 60%; 
+    border-collapse: collapse;
+    
+}
+
+.clinic-list td {
+    border: 4px solid #325e83; 
+    padding: 20px 0; 
+    font-size: 20px; 
+    display: flex; 
+    align-items: center; 
+    justify-content: space-between; 
+    width: 100%; 
+    margin-bottom: 5px;
+}
+
+.clinic-list td var {
+    padding-right: 60px; 
+    flex-grow: 1; 
+}
+
+.clinic-list td button {
+    background-color: #4A90E2; 
+    color: white; 
+    border: none;
+    padding: 10px 20px; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    font-size: 16px; 
+    flex-shrink: 0; 
+}
+
+.clinic-list td button:hover {
+    background-color: #357ABD; 
+}
+
+#main-clinic-list{
+    display: flex;
+    gap: 15px;
+}
+
+.this-clinic{
+    width: 30%;
+    border: 2px solid blue;
+}
